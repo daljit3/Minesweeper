@@ -24,6 +24,18 @@ top_frame.place(
     y=0
 )
 
+game_title = Label(
+    top_frame,
+    bg='black',
+    fg='white',
+    text='Minesweeper Game',
+    font=('', 38)
+)
+game_title.place(
+    x=utils.width_percent(25),
+    y=0
+)
+
 # Left frame
 left_frame = Frame(
     root,
@@ -57,7 +69,11 @@ for x in range(settings.GRID_SIZE):
             row=y
         )
 
-# print(Cell.all_cells)
+Cell.create_cell_count_label(left_frame)
+Cell.cell_count_label_object.place(x=0,y=0)
+Cell.randomize_mines()
+#for c in Cell.all_cells:
+#    pass
 
 # Run the window
 root.mainloop()
